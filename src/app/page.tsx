@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     siteName: "Tana Tech Africa",
     images: [
       {
-        url: "/og-image.png",
+        url: "/meta-images/cp.png",
         width: 1200,
         height: 630,
         alt: "Tana Tech Africa Logo",

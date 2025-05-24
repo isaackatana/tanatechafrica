@@ -68,8 +68,8 @@ export default function ContactPage() {
   
         {/* Business Info */}
         <div className="text-center text-gray-700">
-          <p><strong>Email:</strong> info@tanatech.africa</p>
-          <p><strong>Phone:</strong> +254 712 345 678</p>
+          <p><strong>Email:</strong> info@tanatechafrica.com</p>
+          <p><strong>Phone:</strong> +254 743 195 701</p>
           <p><strong>Location:</strong> Mombasa, Kenya</p>
         </div>
       </section>
