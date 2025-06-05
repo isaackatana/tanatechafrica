@@ -28,12 +28,15 @@ export default function Home() {
   return (
     <section className="space-y-16">
       {/* Hero Section */}
-      <div className="text-center py-20 bg-gradient-to-r from-primary to-secondary text-white rounded-xl shadow-md">
-        <h1 className="text-5xl font-extrabold">Tana Tech Africa</h1>
-        <p className="mt-4 text-xl">
-          Empowering brands with digital design, development & media
-        </p>
+      <div className="text-center text-white rounded-xl shadow-md sliding-bg">
+        <div className="bg-black/60 p-10 rounded-lg">
+          <h1 className="text-5xl font-extrabold">Tana Tech Africa</h1>
+          <p className="mt-4 text-xl">
+            Empowering brands with digital design, development & media
+          </p>
+        </div>
       </div>
+
 
       {/* Services Preview */}
       <div className="max-w-4xl mx-auto text-center">
