@@ -31,21 +31,23 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <section className="space-y-16 p-8">
+    <section className="space-y-20 px-4 sm:px-6 lg:px-8 py-12 bg-gray-50 min-h-screen">
       {/* Hero Section */}
       <div className="text-center text-white rounded-xl shadow-md sliding-bg">
-        <div className="bg-black/60 p-10 rounded-lg">
-          <h1 className="text-5xl font-extrabold">Tana Tech Africa</h1>
-          <p className="mt-4 text-xl">
+        <div className="bg-black/60 px-6 sm:px-10 py-12 rounded-lg">
+          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+            Tana Tech Africa
+          </h1>
+          <p className="mt-4 text-lg sm:text-xl max-w-2xl mx-auto">
             Empowering brands with digital design, development & media
           </p>
         </div>
       </div>
 
       {/* Services Preview */}
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-6">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-10">Our Services</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
           <ServiceCard
             title="Web & Mobile Development"
             description="Custom websites and mobile apps tailored for your brand."
@@ -76,9 +78,11 @@ function ServiceCard({
   description: string;
 }) {
   return (
-    <div className="bg-white shadow p-6 rounded-lg text-left border hover:shadow-lg transition">
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+    <div className="bg-white shadow-md hover:shadow-xl transition duration-300 p-6 rounded-2xl text-left border border-gray-100">
+      <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-800">
+        {title}
+      </h3>
+      <p className="text-gray-600 text-sm sm:text-base">{description}</p>
     </div>
   );
 }

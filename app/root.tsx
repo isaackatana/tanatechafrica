@@ -3,12 +3,10 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/reac
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// ✅ Import your Tailwind CSS
-import "~/tailwind.css";
+import stylesheet from "~/tailwind.css"; // ✅ adjust if file is in a different path
 
-// ✅ Export the stylesheet link
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: "~/tailwind.css" },
+  { rel: "stylesheet", href: stylesheet },
   { rel: "icon", type: "image/x-icon", href: "/TTS-logo-icon.png" }
 ];
 
