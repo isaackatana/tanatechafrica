@@ -4,11 +4,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 // ✅ Import your Tailwind CSS
-import tailwindStyles from "~/tailwind.css";
+import "~/tailwind.css";
 
 // ✅ Export the stylesheet link
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: tailwindStyles },
+  { rel: "stylesheet", href: "~/tailwind.css" },
   { rel: "icon", type: "image/x-icon", href: "/TTS-logo-icon.png" }
 ];
 
