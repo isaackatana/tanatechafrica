@@ -1,45 +1,63 @@
+// app/root.tsx
+import type { MetaFunction, LinksFunction } from "@remix-run/node";
 import {
   Links,
+  LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import tailwindStyles from "./tailwind.css";
 
-import "./tailwind.css";
+export const meta: MetaFunction = () => ([
+  { title: "Tana Tech Africa — Digital Solutions" },
+  {
+    name: "description",
+    content:
+      "Tana Tech Africa offers website & mobile app development, branding, and digital services tailored for businesses in Africa.",
+  },
+]);
 
 export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
+  { rel: "stylesheet", href: tailwindStyles },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export default function App() {
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
+      <body className="bg-white text-black dark:bg-gray-950 dark:text-white font-sans">
+        <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
+          <header className="border-b p-4 shadow-sm">
+            <div className="container mx-auto flex justify-between items-center">
+              <h1 className="text-xl font-bold">Tana Tech Africa</h1>
+              <nav className="space-x-4 text-sm">
+                <a href="/" className="hover:underline">Home</a>
+                <a href="/services" className="hover:underline">Services</a>
+                <a href="/portfolio" className="hover:underline">Portfolio</a>
+                <a href="/blog" className="hover:underline">Blog</a>
+                <a href="/contact" className="hover:underline">Contact</a>
+              </nav>
+            </div>
+          </header>
+
+          <main className="container mx-auto p-4">
+            <Outlet />
+          </main>
+
+          <footer className="border-t p-4 text-center text-sm text-gray-500">
+            © {new Date().getFullYear()} Tana Tech Africa. All rights reserved.
+          </footer>
+        </div>
+
         <ScrollRestoration />
         <Scripts />
+        <LiveReload />
       </body>
     </html>
   );
-}
-
-export default function App() {
-  return <Outlet />;
 }
