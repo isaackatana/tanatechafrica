@@ -8,20 +8,19 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import tailwindStyles from "./tailwind.css";
+import "./tailwind.css"; // ✅ Import CSS globally for Vite
 
-export const meta: MetaFunction = () => ([
+export const meta: MetaFunction = () => [
   { title: "Tana Tech Africa — Digital Solutions" },
   {
     name: "description",
     content:
       "Tana Tech Africa offers website & mobile app development, branding, and digital services tailored for businesses in Africa.",
   },
-]);
+];
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: tailwindStyles },
-  { rel: "icon", type: "image/x-icon", href: "/TTS-logo-icon.png" }, // <-- Favicon
+  { rel: "icon", type: "image/x-icon", href: "/TTS-logo-icon.png" }, // ✅ Only needed favicon
 ];
 
 export default function App() {
