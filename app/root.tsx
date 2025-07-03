@@ -33,11 +33,10 @@ export default function App() {
       </head>
       <body className="bg-white text-black dark:bg-gray-950 dark:text-white font-sans">
         <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
-          <header className="border-b p-4 shadow-sm">
+          <header className="border-b p-4 shadow-sm bg-neutral-700">
             <div className="container mx-auto flex justify-between items-center">
               <div className="flex items-center space-x-2">
                 <img src="/TTS-logo-white.png" alt="Tana Tech Africa Logo" className="h-8 w-auto" />
-                <span className="text-xl font-bold">Tana Tech Africa</span>
               </div>
               <nav className="space-x-4 text-sm">
                 <a href="/" className="hover:underline">Home</a>
@@ -53,7 +52,7 @@ export default function App() {
             <Outlet />
           </main>
 
-          <footer className="border-t p-4 text-center text-sm text-gray-500">
+          <footer className="border-t p-4 text-center text-sm text-gray-500 bg-neutral-700">
             © {new Date().getFullYear()} Tana Tech Africa. All rights reserved.
           </footer>
         </div>
