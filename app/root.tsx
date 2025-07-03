@@ -21,6 +21,7 @@ export const meta: MetaFunction = () => ([
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: tailwindStyles },
+  { rel: "icon", type: "image/x-icon", href: "/TTS-logo-icon.png" }, // <-- Favicon
 ];
 
 export default function App() {
@@ -34,7 +35,10 @@ export default function App() {
         <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
           <header className="border-b p-4 shadow-sm">
             <div className="container mx-auto flex justify-between items-center">
-              <h1 className="text-xl font-bold">Tana Tech Africa</h1>
+              <div className="flex items-center space-x-2">
+                <img src="/TTS-logo-white.png" alt="Tana Tech Africa Logo" className="h-8 w-auto" />
+                <span className="text-xl font-bold">Tana Tech Africa</span>
+              </div>
               <nav className="space-x-4 text-sm">
                 <a href="/" className="hover:underline">Home</a>
                 <a href="/services" className="hover:underline">Services</a>
