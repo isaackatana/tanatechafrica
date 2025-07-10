@@ -5,8 +5,11 @@
 html,
 body {
   @apply bg-white dark:bg-gray-950;
+}
 
-  @media (prefers-color-scheme: dark) {
+/* Place media query separately (outside selector) */
+@media (prefers-color-scheme: dark) {
+  html {
     color-scheme: dark;
   }
 }
