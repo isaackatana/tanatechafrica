@@ -30,6 +30,7 @@ export default function App() {
       <head>
         <Meta />
         <Links />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className="bg-white text-black dark:bg-gray-950 dark:text-white font-sans">
         <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
