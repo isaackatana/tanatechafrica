@@ -14,7 +14,7 @@ export const meta: MetaFunction = () => {
     { name: "author", content: "Tana Tech Africa" },
     { property: "og:title", content: "Tana Tech Africa – Empowering African Brands" },
     { property: "og:description", content: "Helping businesses across Africa grow through technology, branding, and strategy." },
-    { property: "og:image", content: "/meta-images.jpg/home-meta.jpg" },
+    { property: "og:image", content: "/meta-images/home-meta.jpg" },
     { property: "og:type", content: "website" },
     { property: "og:url", content: "https://tanatech.africa" },
     { name: "twitter:card", content: "summary_large_image" },
