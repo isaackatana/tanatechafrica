@@ -1,4 +1,31 @@
 // app/routes/services.tsx
+import type { MetaFunction } from "@remix-run/node";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Services – Tana Tech Africa" },
+    {
+      name: "description",
+      content:
+        "Explore Tana Tech Africa's services: website and app development, branding, graphic design, social media marketing, and photography tailored for African businesses.",
+    },
+    {
+      name: "keywords",
+      content:
+        "digital services Kenya, Tana Tech Africa, website development, branding, social media marketing, photography services Africa, creative agency",
+    },
+    { name: "author", content: "Tana Tech Africa" },
+    { property: "og:title", content: "Digital Services by Tana Tech Africa" },
+    { property: "og:description", content: "A wide range of creative and technical services to help African brands grow." },
+    { property: "og:image", content: "/images/services/dev-placeholder.jpg" },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://tanatech.africa/services" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Tana Tech Africa Services" },
+    { name: "twitter:description", content: "Digital solutions including web development, branding, marketing, and photography." },
+    { name: "twitter:image", content: "/images/services/dev-placeholder.jpg" }
+  ];
+};
 
 export default function ServicesPage() {
   return (

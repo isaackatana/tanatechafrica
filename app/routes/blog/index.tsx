@@ -1,6 +1,7 @@
 // app/routes/blog.index.tsx
 import { Link, useLoaderData } from "@remix-run/react";
 import { json, LoaderFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/node";
 import { getAllPosts } from "~/utils/getPosts";
 
 interface Post {
@@ -11,6 +12,34 @@ interface Post {
   tags?: string[];
 }
 
+// SEO Meta
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Blog – Insights & Stories | Tana Tech Africa" },
+    {
+      name: "description",
+      content:
+        "Explore articles from Tana Tech Africa on web development, branding, tech trends, and digital strategies that empower African businesses.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Tana Tech blog, tech insights Africa, branding tips, web design Kenya, business strategy Africa, digital marketing",
+    },
+    { name: "author", content: "Tana Tech Africa" },
+    { property: "og:title", content: "Blog – Tana Tech Africa" },
+    { property: "og:description", content: "Latest tech, design, and digital business articles from Tana Tech Africa." },
+    { property: "og:image", content: "/images/blog/blog-meta.jpg" }, // optional social preview
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://tanatech.africa/blog" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Tana Tech Africa Blog" },
+    { name: "twitter:description", content: "Insights and ideas to grow your digital brand in Africa." },
+    { name: "twitter:image", content: "/images/blog/blog-meta.jpg" }
+  ];
+};
+
+// Loader
 export const loader: LoaderFunction = async () => {
   const posts = getAllPosts();
   return json(posts);
@@ -21,6 +50,7 @@ export default function BlogIndexPage() {
 
   return (
     <div className="space-y-16">
+      {/* Page Header */}
       <section className="text-center py-16 px-4">
         <h1 className="text-4xl font-bold mb-4">Latest Insights</h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
@@ -28,6 +58,7 @@ export default function BlogIndexPage() {
         </p>
       </section>
 
+      {/* Blog List */}
       <section className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-4">
         {posts.map((post: Post) => (
           <Link

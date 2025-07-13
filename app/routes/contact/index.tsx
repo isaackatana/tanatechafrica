@@ -1,6 +1,34 @@
 // app/routes/contact.tsx
 import { ActionFunction, json } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
+import type { MetaFunction } from "@remix-run/node";
+
+// SEO Meta Tags
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Contact Us – Tana Tech Africa" },
+    {
+      name: "description",
+      content:
+        "Get in touch with Tana Tech Africa for website development, branding, social media marketing, and digital solutions tailored for your business.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Tana Tech Africa contact, web agency Kenya, contact tech agency Africa, digital services inquiry, website quote, branding help",
+    },
+    { name: "author", content: "Tana Tech Africa" },
+    { property: "og:title", content: "Contact Tana Tech Africa" },
+    { property: "og:description", content: "Reach out to discuss your digital project or ask us a question." },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://tanatech.africa/contact" },
+    { property: "og:image", content: "/images/contact-meta.jpg" }, // Optional: update this image
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Contact Tana Tech Africa" },
+    { name: "twitter:description", content: "We’d love to hear from you. Send us a message!" },
+    { name: "twitter:image", content: "/images/contact-meta.jpg" }
+  ];
+};
 
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
