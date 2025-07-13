@@ -6,28 +6,45 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Close mobile menu when clicking outside
+  // Close on outside click or Esc key
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setMenuOpen(false);
       }
     }
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+
+    function handleEsc(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
     }
 
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleEsc);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    };
   }, [menuOpen]);
 
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/services", label: "Services" },
+    { to: "/portfolio", label: "Portfolio" },
+    { to: "/blog", label: "Blog" },
+    { to: "/contact", label: "Contact" },
+  ];
+
   return (
-    <header className="bg-neutral-700 border-b p-4 shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="bg-neutral-900 text-white sticky top-0 z-50 shadow-sm">
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <img
@@ -37,37 +54,52 @@ export default function Header() {
           />
         </Link>
 
-        {/* Toggle Button for Mobile */}
+        {/* Mobile Menu Button */}
         <button
-          className="sm:hidden text-white"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          className="sm:hidden focus:outline-none transition-transform duration-300"
         >
-          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {menuOpen ? (
+            <X className="w-6 h-6 transition-transform rotate-90" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
         </button>
 
-        {/* Desktop Nav */}
-        <nav className="hidden sm:flex space-x-6 text-sm text-white">
-          <Link to="/" className="hover:underline">Home</Link>
-          <Link to="/services" className="hover:underline">Services</Link>
-          <Link to="/portfolio" className="hover:underline">Portfolio</Link>
-          <Link to="/blog" className="hover:underline">Blog</Link>
-          <Link to="/contact" className="hover:underline">Contact</Link>
+        {/* Desktop Navigation */}
+        <nav className="hidden sm:flex space-x-6 text-sm">
+          {navItems.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="hover:underline transition"
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Navigation */}
       <div
         ref={menuRef}
-        className={`sm:hidden transition-all duration-300 overflow-hidden ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        } bg-neutral-800 px-4 py-2 space-y-2 text-sm text-white`}
+        className={`sm:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+          menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        } bg-neutral-800 px-4 py-2`}
       >
-        <Link to="/" className="block hover:underline" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/services" className="block hover:underline" onClick={() => setMenuOpen(false)}>Services</Link>
-        <Link to="/portfolio" className="block hover:underline" onClick={() => setMenuOpen(false)}>Portfolio</Link>
-        <Link to="/blog" className="block hover:underline" onClick={() => setMenuOpen(false)}>Blog</Link>
-        <Link to="/contact" className="block hover:underline" onClick={() => setMenuOpen(false)}>Contact</Link>
+        <nav className="flex flex-col space-y-3 text-sm">
+          {navItems.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="hover:underline"
+              onClick={() => setMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
   );

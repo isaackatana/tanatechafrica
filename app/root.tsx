@@ -18,6 +18,11 @@ export const meta: MetaFunction = () => [
     content:
       "Tana Tech Africa offers website & mobile app development, branding, and digital services tailored for businesses in Africa.",
   },
+  {
+    name: "og:image",
+    href:
+      "/meta-images/home-meta.jpg",
+  },
 ];
 
 export const links: LinksFunction = () => [

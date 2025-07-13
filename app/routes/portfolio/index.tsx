@@ -1,4 +1,31 @@
 // app/routes/portfolio.tsx
+import type { MetaFunction } from "@remix-run/node";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Portfolio – Tana Tech Africa" },
+    {
+      name: "description",
+      content:
+        "Discover a showcase of Tana Tech Africa's past projects, including web development, branding, social media campaigns, and photography.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Tana Tech Africa portfolio, African digital agency, web design examples, branding case studies, digital marketing Kenya",
+    },
+    { name: "author", content: "Tana Tech Africa" },
+    { property: "og:title", content: "Tana Tech Africa Portfolio" },
+    { property: "og:description", content: "A collection of successful digital projects by Tana Tech Africa." },
+    { property: "og:image", content: "/meta-images/portfolio-meta.jpg" },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://tanatech.africa/portfolio" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Tana Tech Africa Portfolio" },
+    { name: "twitter:description", content: "See how we’ve helped African brands grow online." },
+    { name: "twitter:image", content: "/images/portfolio/portfolio-1.jpg" }
+  ];
+};
 
 export default function PortfolioPage() {
   return (

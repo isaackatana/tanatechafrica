@@ -1,5 +1,28 @@
 // app/routes/_index.tsx
 import { Link } from "@remix-run/react";
+import type { MetaFunction } from "@remix-run/node";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Tana Tech Africa – Empowering African Brands with Digital Innovation" },
+    {
+      name: "description",
+      content:
+        "Tana Tech Africa is a full-service digital agency in Kenya, offering website and mobile app development, branding, and digital marketing for African businesses.",
+    },
+    { name: "keywords", content: "Tana Tech Africa, web development Kenya, mobile apps Africa, branding Kenya, African startups, digital agency" },
+    { name: "author", content: "Tana Tech Africa" },
+    { property: "og:title", content: "Tana Tech Africa – Empowering African Brands" },
+    { property: "og:description", content: "Helping businesses across Africa grow through technology, branding, and strategy." },
+    { property: "og:image", content: "/meta-images.jpg/home-meta.jpg" },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://tanatech.africa" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Tana Tech Africa" },
+    { name: "twitter:description", content: "We build websites, apps, and brands for African businesses." },
+    { name: "twitter:image", content: "/images/social-share.jpg" }
+  ];
+};
 
 export default function HomePage() {
   return (
