@@ -86,14 +86,14 @@ export default function Header() {
         ref={menuRef}
         className={`sm:hidden transition-all duration-300 ease-in-out overflow-hidden ${
           menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } bg-neutral-800 px-4 py-2`}
+        } bg-neutral-800`}
       >
-        <nav className="flex flex-col space-y-3 text-sm">
+        <nav className="flex flex-col text-sm">
           {navItems.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="hover:underline"
+              className="hover:bg-white p-4"
               onClick={() => setMenuOpen(false)}
             >
               {item.label}
