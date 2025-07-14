@@ -93,7 +93,7 @@ export default function Header() {
             <Link
               key={item.to}
               to={item.to}
-              className="hover:bg-white p-4"
+              className="hover:bg-[#44b2e5] p-4"
               onClick={() => setMenuOpen(false)}
             >
               {item.label}
