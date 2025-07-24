@@ -13,13 +13,9 @@
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.99.0",
-    "gray-matter": "^4.0.3",
-    "groq": "^3.99.0",
     "lucide-react": "^0.525.0",
     "markdown-to-jsx": "^7.7.12",
-    "marked": "^16.1.1",
     "next": "15.4.2",
-    "next-sanity": "^9.12.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "styled-components": "^6.1.19"
